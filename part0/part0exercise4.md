@@ -5,7 +5,7 @@ sequenceDiagram
 
     Note right of browser: Enter "something" into note textbox and click "Save"
 
- browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+ browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note<br/>with payload note=something
     activate server
     server-->>browser: HTTP Status Code 302 with redirect Location notes
     deactivate server
