@@ -16,19 +16,9 @@
       "important": true
     },
     {
-      "content": "testing",
-      "important": true,
-      "id": 4
-    },
-    {
-      "content": "abc",
-      "important": true,
-      "id": 5
-    },
-    {
-      "content": "da",
-      "important": false,
-      "id": 6
+      "id": 4,
+      "content": "HTML is easy",
+      "important": false
     }
   ]
 }
