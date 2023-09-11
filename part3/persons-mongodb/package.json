@@ -1,0 +1,15 @@
+{
+  "name": "persons-mongodb",
+  "version": "0.0.1",
+  "description": "",
+  "main": "mongo.js",
+  "scripts": {
+    "start": "node mongo.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Choi",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^7.5.0"
+  }
+}
