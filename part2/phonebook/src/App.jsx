@@ -66,7 +66,7 @@ const App = () => {
         const personToUpdate = persons.find(p => p.name === newName)
         personService.update(personObject, personToUpdate.id)
           .then(newPerson => {
-            setPersons(persons.map(p => p.name !== newName ? p : personObject))
+            setPersons(persons.map(p => p.name !== newName ? p : newPerson))
         })
 
         setNotification(
@@ -98,7 +98,7 @@ const App = () => {
 
   const deletePerson = (id) => {  
     const personToDelete = persons.find(p => p.id === id)
-
+    
     if (window.confirm(`Delete ${personToDelete.name} ?`)) {
       personService.remove(personToDelete.id)
         .then(removedPerson => {
