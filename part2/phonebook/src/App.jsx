@@ -50,16 +50,24 @@ const App = () => {
         .then(newPerson => {
           setPersons(persons.concat(newPerson))
 
-      setNotification(
-        `Added ${newName}`
-      )
+          setNotification(
+            `Added ${newName}`
+          )
 
-      setSuccess(true)
-      
-      setTimeout(() => {
-        setNotification(null)
-      }, 5000)
-    })
+          setSuccess(true)
+          
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000)
+        })
+        .catch(error => {
+          console.log(error.response.data.error)
+          setNotification(error.response.data.error)
+          setSuccess(false)
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000)
+        })
 
     } else {
       if(window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
@@ -67,17 +75,25 @@ const App = () => {
         personService.update(personObject, personToUpdate.id)
           .then(newPerson => {
             setPersons(persons.map(p => p.name !== newName ? p : newPerson))
+
+            setNotification(
+              `Added ${newName}`
+            )
+            
+            setSuccess(true)
+    
+            setTimeout(() => {
+              setNotification(null)
+            }, 5000)
         })
-
-        setNotification(
-          `Added ${newName}`
-        )
-        
-        setSuccess(true)
-
-        setTimeout(() => {
-          setNotification(null)
-        }, 5000)
+        .catch(error => {
+          console.log(error.response.data.error)
+          setNotification(error.response.data.error)
+          setSuccess(false)
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000)
+        })
       }
     }
     setNewName('')
