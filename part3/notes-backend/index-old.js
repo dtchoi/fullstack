@@ -1,9 +1,9 @@
-require('dotenv').config()
-const express = require('express')
+//require('dotenv').config()
+/*const express = require('express')
 const cors = require('cors')
 const Note = require('./models/note')
-const app = express()
-
+const app = express()*/
+/*
 const requestLogger = (req, res, next) => {
     console.log('Method: ', req.method)
     console.log('Path: ', req.path)
@@ -27,12 +27,14 @@ const errorHandler = (error, request, response, next) => {
 const unknownEndpoint = (req, res) => {
     res.status(404).send({ error: 'unknown endpoint' })
 }
-
+*/
+/*
 app.use(express.static('dist'))
 app.use(cors())
 app.use(express.json())
 app.use(requestLogger)
-
+*/
+/*
 app.get('/', (request, response) => {
     response.send('<h1>Hello World!</h1>')
 })
@@ -93,11 +95,14 @@ app.put('/api/notes/:id', (request, response, next) => {
         })
         .catch(error => next(error))
 })
-
+*/
+/*
 app.use(unknownEndpoint)
 app.use(errorHandler)
-
+*/
+/*
 const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
+*/
