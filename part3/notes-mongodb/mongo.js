@@ -8,7 +8,7 @@ if (process.argv.length<3) {
 const password = process.argv[2]
 
 const url =
-  `mongodb+srv://dtchoi:${password}@cluster0.wzsqxrc.mongodb.net/noteApp?retryWrites=true&w=majority`
+  `mongodb+srv://fullstack:${password}@cluster0.wzsqxrc.mongodb.net/testNoteApp?retryWrites=true&w=majority`
 
 mongoose.set('strictQuery',false)
 mongoose.connect(url)
@@ -34,7 +34,7 @@ const note3 = new Note({
     content: 'Mongoose makes things easy',
     important: true,
   })
-/*
+
 note.save().then(result => {
     console.log('note saved!')
     note2.save().then(result => {
@@ -45,11 +45,11 @@ note.save().then(result => {
         })
     })
 })
-*/
 
+/*
 Note.find({ important: true }).then(result => {
     result.forEach(note => {
         console.log(note)
     })
     mongoose.connection.close()
-})
+})*/
