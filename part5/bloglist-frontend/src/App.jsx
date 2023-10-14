@@ -18,10 +18,9 @@ const App = () => {
   const blogRef = useRef()
 
   useEffect(() => {
-    blogService.getAll().then(blogs => 
-      setBlogs( blogs.sort((a, b) => b.likes - a.likes) ) 
+    blogService.getAll().then(blogs =>
+      setBlogs( blogs.sort((a, b) => b.likes - a.likes) )
     )
-    
   }, [])
 
   useEffect(() => {
@@ -37,7 +36,7 @@ const App = () => {
     blogFormRef.current.toggleVisibility()
     try {
       const returnedBlog = await blogService.create(blogObject)
-      const newBlogObject = {...blogObject, id: returnedBlog.id, likes: 0, user: {name: user.name, username: user.username}}
+      const newBlogObject = { ...blogObject, id: returnedBlog.id, likes: 0, user: { name: user.name, username: user.username } }
       setNotification(`a new blog ${blogObject.title} added`)
       setSuccess(true)
       setBlogs(blogs.concat(newBlogObject))
@@ -131,7 +130,6 @@ const App = () => {
           <Blog key={blog.id} blog={blog} userName={user.username} updateBlog={updateBlog} deleteBlog={deleteBlog} />
         )}
       </div>
-      
     </div>
   )
 

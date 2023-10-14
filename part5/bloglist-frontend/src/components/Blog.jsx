@@ -2,10 +2,10 @@ import { useState } from 'react'
 
 const Blog = ({ blog, userName, updateBlog, deleteBlog }) => {
   const [visible, setVisible] = useState(false)
-  
+
   const hideWhenVisible = { display: visible ? 'none' : '' }
   const showWhenVisible = { display: visible ? '' : 'none' }
-  const showDelete = { display: userName === blog.user.username  ? '' : 'none'}
+  const showDelete = { display: userName === blog.user.username  ? '' : 'none' }
 
   const toggleVisibility = () => {
     setVisible(!visible)
@@ -54,9 +54,9 @@ const Blog = ({ blog, userName, updateBlog, deleteBlog }) => {
         <div style={showDelete}>
           <button onClick={removeBlog}>delete</button>
         </div>
-        
+
       </div>
-    </div>  
+    </div>
   )
 }
 
