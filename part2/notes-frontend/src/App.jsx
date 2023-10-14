@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Note from './components/Note'
 import Footer from './components/Footer'
 import Notification from './components/Notification'
@@ -36,20 +36,20 @@ const App = () => {
 
   const toggleImportanceOf = (id) => {
     const note = notes.find(n => n.id === id)
-    const changedNote = {...note, important: !note.important}
+    const changedNote = { ...note, important: !note.important }
 
     noteService.update(id, changedNote).then(returnedNote => {
       setNotes(notes.map(n => n.id !== id ? n : returnedNote))
     })
-    .catch(error => {
-      setErrorMessage(
-        `Note '${note.content}' was already removed from server`
-      )
-      setTimeout(() => {
-        setErrorMessage(null)
-      }, 5000)
-      //setNotes(notes.filter(n => n.id !== id))
-    })
+      .catch(error => {
+        setErrorMessage(
+          `Note '${note.content}' was already removed from server`
+        )
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
+        //setNotes(notes.filter(n => n.id !== id))
+      })
   }
 
   const addNote = (noteObject) => {
@@ -87,11 +87,11 @@ const App = () => {
 
   const loginForm = () => (
     <Togglable buttonLabel='login'>
-      <LoginForm username={username} password={password} 
-            handleUsernameChange={({ target }) => setUsername(target.value)}
-            handlePasswordChange={({ target}) => setPassword(target.value)}
-            handleSubmit={handleLogin} 
-          />
+      <LoginForm username={username} password={password}
+        handleUsernameChange={({ target }) => setUsername(target.value)}
+        handlePasswordChange={({ target }) => setPassword(target.value)}
+        handleSubmit={handleLogin}
+      />
     </Togglable>
   )
 
@@ -111,8 +111,7 @@ const App = () => {
       {user && <div>
         <p>{user.name} logged in</p>
         {noteForm()}
-        </div>
-      }
+      </div>}
 
       <h2>Notes</h2>
 
@@ -123,7 +122,7 @@ const App = () => {
       </div>
 
       <ul>
-        {notesToShow.map(note => 
+        {notesToShow.map(note =>
           <Note key={note.id} note={note} toggleImportance={() => toggleImportanceOf(note.id)}/>
         )}
       </ul>
