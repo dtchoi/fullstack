@@ -1,0 +1,10 @@
+PUT http://localhost:3003/api/blogs/651de30cb09aeb2d77e4c538
+Content-Type: application/json
+
+{
+    "author": "DC",
+    "title": "this is required",
+    "likes": 1,
+    "url": "http://required/aswell",
+    "user": "651d970e642327dbebd7bf3c"
+}
