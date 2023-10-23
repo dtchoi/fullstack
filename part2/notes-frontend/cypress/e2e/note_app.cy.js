@@ -1,13 +1,13 @@
 describe('Note app', function() {
   beforeEach(function() {
-    cy.request('POST', 'http://localhost:3001/api/testing/reset')
+    cy.request('POST', `${Cypress.env('BACKEND')}/testing/reset`)
     const user = {
       name: 'Daniel Choi',
       username: 'dtchoi',
-      password: 'thisismypasswordpleasedontcrack'
+      password: 'thisisatestpassword'
     }
-    cy.request('POST', 'http://localhost:3001/api/users', user)
-    cy.visit('http://localhost:5173')
+    cy.request('POST', `${Cypress.env('BACKEND')}/users`, user)
+    cy.visit('')
   })
 
   it('front page can be opened', function() {
@@ -15,21 +15,33 @@ describe('Note app', function() {
     cy.contains('Note app, Department of Computer Science, University of Helsinki 2023')
   })
 
-  it('user can log in', function() {
+  it('user can login', function() {
     cy.contains('login').click()
     cy.get('#username').type('dtchoi')
-    cy.get('#password').type('thisismypasswordpleasedontcrack')
+    cy.get('#password').type('thisisatestpassword')
     cy.get('#login-button').click()
 
     cy.contains('Daniel Choi logged in')
   })
 
+  it('login fails with wrong password', function() {
+    cy.contains('login').click()
+    cy.get('#username').type('dtchoi')
+    cy.get('#password').type('wrong')
+    cy.get('#login-button').click()
+
+    cy.get('.error')
+      .should('contain', 'Wrong credentials')
+      .and('have.css', 'color', 'rgb(255, 0, 0)')
+      .and('have.css', 'border-style', 'solid')
+
+    cy.get('html').should('not.contain', 'Daniel Choi logged in')
+    //cy.contains('Daniel Choi logged in').should('not.exist')
+  })
+
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
-      cy.get('#username').type('dtchoi')
-      cy.get('#password').type('thisismypasswordpleasedontcrack')
-      cy.get('#login-button').click()
+      cy.login({ username: 'dtchoi', password: 'thisisatestpassword' })
     })
 
     it('a new note can be created', function() {
@@ -41,9 +53,10 @@ describe('Note app', function() {
 
     describe('and a note exists', function() {
       beforeEach(function() {
-        cy.contains('new note').click()
-        cy.get('input').type('another note cypress')
-        cy.contains('save').click()
+        cy.createNote({
+          content: 'another note cypress',
+          important: true
+        })
       })
 
       it('it can be made not important', function() {
@@ -56,6 +69,4 @@ describe('Note app', function() {
       })
     })
   })
-
-
 })
