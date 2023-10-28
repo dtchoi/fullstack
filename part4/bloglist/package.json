@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "NODE_ENV=dev nodemon index.js",
     "test": "NODE_ENV=test jest --verbose",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "start:test": "NODE_ENV=test node index.js"
   },
   "author": "Daniel Choi",
   "license": "MIT",

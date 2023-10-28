@@ -125,7 +125,7 @@ const App = () => {
       <Togglable buttonLabel='new blog' ref={blogFormRef}>
         <BlogForm createBlog={addBlog}/>
       </Togglable>
-      <div>
+      <div >
         {blogs.map(blog =>
           <Blog key={blog.id} blog={blog} userName={user.username} updateBlog={updateBlog} deleteBlog={deleteBlog} />
         )}
@@ -139,12 +139,12 @@ const App = () => {
       <Notification message={notification} successful={success} />
       <form onSubmit={handleLogin}>
         <div>
-          username<input type="text" value={username} name="Username" onChange={({ target }) => setUsername(target.value)} />
+          username<input id='username' type="text" value={username} name="Username" onChange={({ target }) => setUsername(target.value)} />
         </div>
         <div>
-          password<input type="password" value={password} name="Password" onChange={({ target }) => setPassword(target.value)} />
+          password<input id='password' type="password" value={password} name="Password" onChange={({ target }) => setPassword(target.value)} />
         </div>
-        <button type="submit">login</button>
+        <button id="login-button" type="submit">login</button>
       </form>
     </div>
   )
