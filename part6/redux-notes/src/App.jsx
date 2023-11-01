@@ -3,11 +3,6 @@ import Notes from './components/Notes'
 import VisibilityFilter from './components/VisibilityFilter'
 
 const App = () => {
-
-  const filteredSelected = (value) => {
-    console.log(value)
-  }
-
   return(
     <div>
       <NewNote />
