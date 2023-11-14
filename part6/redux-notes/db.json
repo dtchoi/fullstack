@@ -9,31 +9,6 @@
       "content": "state changes are made with actions",
       "important": false,
       "id": 2
-    },
-    {
-      "content": "new note",
-      "important": false,
-      "id": 3
-    },
-    {
-      "content": "a",
-      "important": false,
-      "id": 4
-    },
-    {
-      "content": "abc",
-      "important": false,
-      "id": 5
-    },
-    {
-      "content": "abc",
-      "important": false,
-      "id": 6
-    },
-    {
-      "content": "new",
-      "important": false,
-      "id": 7
     }
   ]
 }
