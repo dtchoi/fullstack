@@ -1,0 +1,11 @@
+post http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vY2hpIiwiaWQiOiI2NTFkOTcwZTY0MjMyN2RiZWJkN2JmM2MiLCJpYXQiOjE2OTY0MzgwNDIsImV4cCI6MTY5NjQ0MTY0Mn0.j9uCXKpnKiJo0r3Mw3brBmB-D4PdJhso2WmF6F1MlOs
+
+
+{
+    "author": "Mochi Wolfe",
+    "title": "How To Verify Delete",
+    "likes": "99999999",
+    "url": "http://localhost:3003/verifyuser"
+}
